@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-
+//导入自己封装sass.css文件
 import styles from './index.module.scss'
-
+//按需导入router
 import { Route, Redirect } from 'react-router-dom'
-
+//导入TabBar插件
 import { TabBar } from 'antd-mobile'
 
 // 导入子组件
@@ -12,7 +12,10 @@ import HouseList from '../HouseList'
 import Info from '../Info'
 import My from '../My'
 
+
+//默认导出class类组件
 export default class Index extends Component {
+    //react的数据
   state = {
     selectedTab: '/layout/home'
   }
@@ -44,6 +47,7 @@ export default class Index extends Component {
   /**
    * 因为我们的内容变了，那么底部的tabBar的选中状态就应该同步过来
    * @param {*} prevProps
+   * 重新渲染dom后调用的钩子
    */
   componentDidUpdate(prevProps) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
@@ -82,6 +86,7 @@ export default class Index extends Component {
     )
   }
 
+  //渲染dom的钩子
   render() {
     return (
       <div className={styles.layout}>
